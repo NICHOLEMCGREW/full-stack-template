@@ -16,6 +16,12 @@ MongoClient.connect(dbConnectionString)
         collection = db.collection('alien-info')
     })
 
+app.set('view engine', 'ejs')
+app.use(express.static('public'))
+app.use(express.urlencoded({extended:true}))
+app.use(express.json())
+app.use(cors())
+
 
     //PORT = 8000
 app.listen(process.env.PORT || PORT, () => {
